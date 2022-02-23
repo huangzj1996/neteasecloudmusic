@@ -1,9 +1,9 @@
 import { App } from 'vue'
 
-import { Button } from 'vant'
+import { Button,Tabbar, TabbarItem  } from 'vant'
 
 
 export default function (app: App<Element>) {
     // 按需引入
-    app.use(Button)
+    app.use(Button).use(Tabbar).use(TabbarItem)
 }

@@ -12,7 +12,7 @@ export default defineConfig({
         vue(),
         styleImport({
             resolves: [VantResolve()]
-        })
+        }),
     ],
     resolve: {
         // 配置别名

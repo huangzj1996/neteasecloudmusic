@@ -2,7 +2,6 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import { setupStore } from './store'
-
 import vant3 from './plugins/vant3'
 
 import './utils/rem'
