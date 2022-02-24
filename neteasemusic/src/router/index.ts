@@ -4,8 +4,35 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 const routes: RouteRecordRaw[] = [
     {
         path: '/',
-        name: 'home',
-        component: () => import('../views/home/index.vue')
+        name: 'Layout',
+        component: () => import('../layout/index.vue'),
+        children: [
+            {
+                path: 'search',
+                name: 'search',
+                component: () => import('@/views/search/idnex.vue')
+            },
+            {
+                path: 'podcasts',
+                name: 'podcasts',
+                component: () => import('@/views/podcasts/idnex.vue')
+            },
+            {
+                path: 'my',
+                name: 'my',
+                component: () => import('@/views/my/idnex.vue')
+            },
+            {
+                path: 'focus',
+                name: 'focus',
+                component: () => import('@/views/focus/idnex.vue')
+            },
+            {
+                path: 'community',
+                name: 'community',
+                component: () => import('@/views/community/idnex.vue')
+            }
+        ]
     }
 ]
 
