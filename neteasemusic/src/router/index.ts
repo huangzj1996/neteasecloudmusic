@@ -6,31 +6,32 @@ const routes: RouteRecordRaw[] = [
         path: '/',
         name: 'Layout',
         component: () => import('../layout/index.vue'),
+        redirect:'/search',
         children: [
             {
                 path: 'search',
                 name: 'search',
-                component: () => import('@/views/search/idnex.vue')
+                component: () => import('views/search/index.vue')
             },
             {
                 path: 'podcasts',
                 name: 'podcasts',
-                component: () => import('@/views/podcasts/idnex.vue')
+                component: () => import('views/podcasts/index.vue')
             },
             {
                 path: 'my',
                 name: 'my',
-                component: () => import('@/views/my/idnex.vue')
+                component: () => import('views/my/index.vue')
             },
             {
                 path: 'focus',
                 name: 'focus',
-                component: () => import('@/views/focus/idnex.vue')
+                component: () => import('views/focus/index.vue')
             },
             {
                 path: 'community',
                 name: 'community',
-                component: () => import('@/views/community/idnex.vue')
+                component: () => import('views/community/index.vue')
             }
         ]
     }

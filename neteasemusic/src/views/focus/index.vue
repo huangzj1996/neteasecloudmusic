@@ -1,4 +1,7 @@
-<template>关注</template>
+<template>
+<div>
+    关注
+</div></template>
 
 <script lang="ts" setup></script>
 

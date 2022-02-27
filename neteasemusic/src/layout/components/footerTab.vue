@@ -4,24 +4,50 @@
         active-color="#FE3A39"
         inactive-color="#B3B3B3"
         class="footerTab"
+        route
     >
-        <van-tabbar-item badge="3">
+        <van-tabbar-item to="/search">
             <span>发现</span>
             <template #icon="props">
-                <img :src="props.active ? icon.active : icon.inactive" />
+                <svg-icon v-if="props.active" icon-class="music" class="tabicon"></svg-icon>
+                <svg-icon v-else icon-class="music1" class="tabicon"></svg-icon>
             </template>
         </van-tabbar-item>
-        <van-tabbar-item icon="search">播客</van-tabbar-item>
-        <van-tabbar-item icon="setting-o">我的</van-tabbar-item>
-        <van-tabbar-item icon="setting-o">关注</van-tabbar-item>
-        <van-tabbar-item icon="setting-o">云村</van-tabbar-item>
+        <van-tabbar-item to="/podcasts" icon="search">
+            <span>播客</span>
+            <template #icon="props">
+                <svg-icon v-if="props.active" icon-class="podcats1" class="tabicon"></svg-icon>
+                <svg-icon v-else icon-class="podcasts" class="tabicon"></svg-icon>
+            </template>
+        </van-tabbar-item>
+        <van-tabbar-item to="/my" icon="search">
+            <span>我的</span>
+            <template #icon="props">
+                <svg-icon v-if="props.active" icon-class="my1" class="tabicon"></svg-icon>
+                <svg-icon v-else icon-class="my" class="tabicon"></svg-icon>
+            </template>
+        </van-tabbar-item>
+        <van-tabbar-item to="/focus" icon="search">
+            <span>关注</span>
+            <template #icon="props">
+                <svg-icon v-if="props.active" icon-class="focus1" class="tabicon"></svg-icon>
+                <svg-icon v-else icon-class="focus" class="tabicon"></svg-icon>
+            </template>
+        </van-tabbar-item>
+        <van-tabbar-item to="/community" icon="search">
+            <span>云村</span>
+            <template #icon="props">
+                <svg-icon v-if="props.active" icon-class="community1" class="tabicon"></svg-icon>
+                <svg-icon v-else icon-class="community" class="tabicon"></svg-icon>
+            </template>
+        </van-tabbar-item>
     </van-tabbar>
 </template>
 
 <script lang="ts" setup>
 import { ref } from '@vue/reactivity'
 
-const active = ref(0)
+const active = ref('/')
 const icon = {
     active: 'https://img.yzcdn.cn/vant/user-active.png',
     inactive: 'https://img.yzcdn.cn/vant/user-inactive.png'
@@ -30,30 +56,18 @@ const icon = {
 
 <style lang="scss" scoped>
 .footerTab {
-    height: 1rem;
-
+    height: 1.28rem;
+    bottom: 0.05rem;
+    font-family: "微软雅黑";
     .van-tabbar-item {
         justify-content: space-evenly;
         &:deep(.van-tabbar-item__icon) {
-            height: 0.4rem;
-            width: 0.4rem;
+            height: 0.53rem;
+            width: 0.6rem;
         }
-        .active {
-            color: white;
-            z-index: 1;
-            position: relative;
-            &::before {
-                content: '';
-                height: 0.65rem;
-                width: 0.65rem;
-                display: inline-block;
-                position: absolute;
-                top: -0.2rem;
-                left: -0.09rem;
-                z-index: -1;
-                background: linear-gradient(to top right, #ff3627, #fe999e);
-                border-radius: 50%;
-            }
+        &:deep(.tabicon) {
+            width: 0.65rem;
+            height: 0.65rem;
         }
     }
 }

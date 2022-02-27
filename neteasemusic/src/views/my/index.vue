@@ -1,4 +1,7 @@
-<template>我的</template>
+<template>
+<div>
+    我的
+</div></template>
 
 <script lang="ts" setup></script>
 

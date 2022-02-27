@@ -6,6 +6,9 @@ import { resolve } from 'path'
 // 按需引入组件
 import styleImport, { VantResolve } from 'vite-plugin-style-import'
 
+// 引入svg组件并注册
+import { svgBuilder } from './src/plugins/svgBuilder'
+
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
@@ -13,6 +16,7 @@ export default defineConfig({
         styleImport({
             resolves: [VantResolve()]
         }),
+        [svgBuilder('./src/assets/icons/svg/')],// 这里已经将src/icons/svg/下的svg全部导入，无需再单独导入
     ],
     resolve: {
         // 配置别名
