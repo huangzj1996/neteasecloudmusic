@@ -48,16 +48,11 @@
 import { ref } from '@vue/reactivity'
 
 const active = ref('/')
-const icon = {
-    active: 'https://img.yzcdn.cn/vant/user-active.png',
-    inactive: 'https://img.yzcdn.cn/vant/user-inactive.png'
-}
 </script>
 
 <style lang="scss" scoped>
 .footerTab {
     height: 1.28rem;
-    bottom: 0.05rem;
     font-family: "微软雅黑";
     .van-tabbar-item {
         justify-content: space-evenly;

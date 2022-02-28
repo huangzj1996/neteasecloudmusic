@@ -13,6 +13,6 @@ import Default from './main/index.vue'
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(180deg, #DBDADA, #fff 35%);
+    background: #F8F8F8;
 }
 </style>

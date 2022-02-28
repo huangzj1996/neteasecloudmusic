@@ -10,3 +10,8 @@ export const getBanner = (type: number) => {
 export const geticonList = ()=>{
     return get('/homepage/dragon/ball')
 }
+
+// 调用此接口 , 可获取推荐歌单
+export const recommendPlaylist = (limit:number)=>{
+    return get(`/personalized?limit=${limit}`)
+}
