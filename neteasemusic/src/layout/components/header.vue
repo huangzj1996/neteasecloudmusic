@@ -35,6 +35,7 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 1rem;
+    background: #00000021;
     .left {
         margin-left: 0.25rem;
         &::active {

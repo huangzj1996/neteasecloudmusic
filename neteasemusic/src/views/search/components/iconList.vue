@@ -1,14 +1,10 @@
 <template>
-    <div class="icon-container">
-        <div class="icon-item" v-for="item in state.iconList" :key="item.id">
-            <van-image
-                round
-                width="0.8rem"
-                height="0.8rem"
-                fit="cover"
-                :src="item.iconUrl"
-            />
-            <span class="icon-text">{{ item.name }}</span>
+    <div class="hide">
+        <div class="icon-container">
+            <div class="icon-item" v-for="item in state.iconList" :key="item.id">
+                <van-image round width="0.8rem" height="0.8rem" fit="cover" :src="item.iconUrl" />
+                <span class="icon-text">{{ item.name }}</span>
+            </div>
         </div>
     </div>
 </template>
@@ -21,7 +17,10 @@ interface Icon {
     data: Array<any>
     message: string
 }
-var state = reactive({
+interface State {
+    iconList: Array<any>
+}
+var state: State = reactive({
     iconList: []
 })
 geticonList().then((res) => {
@@ -32,6 +31,10 @@ geticonList().then((res) => {
 </script>
 
 <style lang="scss" scoped>
+.hide{
+    height: 2rem;
+    overflow:hidden ;
+}
 .icon-container {
     background: transparent;
     display: flex;
@@ -47,14 +50,14 @@ geticonList().then((res) => {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 2.1rem;
+        height: 2.2rem;
         .van-image {
-            background: #f3cbd0;
+            background: red;
         }
         .icon-text {
             margin-top: 0.15rem;
             font-size: 12px;
-            font-family: '微软雅黑';
+            font-family: "微软雅黑";
             color: #7e7e7e;
         }
     }
