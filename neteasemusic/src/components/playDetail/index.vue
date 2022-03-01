@@ -1,17 +1,35 @@
 <template>
     <div class="play-detail">
         <van-nav-bar>
-            <template #left @click="goBack()">
-                <van-icon name="arrow-left" size="20" />
+            <template #left>
+                <van-icon name="arrow-left" size="24" @click="goBack()" />
             </template>
             <template #title>
-                <span class="title"> 歌单 </span>
+                <span class="title">歌单</span>
             </template>
             <template #right>
-                <van-icon name="search" size="20" />
+                <van-icon name="search" size="24" />
+                <svg-icon icon-class="more"></svg-icon>
             </template>
         </van-nav-bar>
-        <img class="cover-img" :src="state.imgUrl" alt="" />
+        <div>
+            <div
+                    class="play-item"
+                   
+                >
+                    <van-image
+                        width="2rem"
+                        height="2rem"
+                        fit="contain"
+                        src="item.picUrl"
+                    />
+                    <span class="playCount">
+                        <svg-icon icon-class="play"></svg-icon>
+                        {{ comput(item.playCount) }}万
+                    </span>
+                </div>
+        </div>
+        <img class="cover-img" :src="state.imgUrl" alt />
     </div>
 </template>
 
@@ -27,7 +45,9 @@ const state = reactive({
 
 const router = useRouter()
 // 返回按钮
-const goBack = ()=>{
+const goBack = () => {
+    console.log(1);
+
     router.back()
 }
 // 初始化时候获取数据
@@ -48,20 +68,25 @@ onMounted(() => {
         .van-icon {
             color: #fff;
         }
+        .svg-icon {
+            width: 1.7em;
+            height: 1.7em;
+            margin-left: 0.2rem;
+        }
     }
     .van-hairline--bottom::after {
         border: none;
     }
     .title {
         font-size: 20px;
-        font-family: '微软雅黑';
+        font-family: "微软雅黑";
         // font-weight: 600;
         color: #fff;
     }
     .cover-img {
         z-index: -1;
         width: 100%;
-        filter: blur(40px);
+        filter: blur(100px);
     }
 }
 </style>
