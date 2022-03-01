@@ -9,8 +9,18 @@
         </div>
         <div class="hide">
             <div class="play-list">
-                <div class="play-item" v-for="item in state.playList" :key="item.id">
-                    <van-image width="2rem" height="2rem" fit="contain" :src="item.picUrl" />
+                <div
+                    class="play-item"
+                    v-for="item in state.playList"
+                    :key="item.id"
+                    @click="toPalyDetail(item.id)"
+                >
+                    <van-image
+                        width="2rem"
+                        height="2rem"
+                        fit="contain"
+                        :src="item.picUrl"
+                    />
                     <span class="name">{{ item.name }}</span>
                     <span class="playCount">
                         <svg-icon icon-class="play"></svg-icon>
@@ -26,17 +36,26 @@
 import { recommendPlaylist } from '@/apis/search'
 import { reactive, ref } from '@vue/reactivity'
 import type { Playlist, State } from '../search'
+import { useRouter } from 'vue-router'
 import SvgIcon from '@/components/SvgIcon/index.vue'
 let state: State = reactive({
     playList: []
 })
+
+const router = useRouter()
+// 获取歌单列表
 recommendPlaylist(6).then((res) => {
     const result = res as Playlist
     state.playList = result.result
 })
 
+// 计算播放量
 const comput = (num: number) => {
     return (num / 10000).toFixed(0)
+}
+
+const toPalyDetail = (id: number) => {
+    router.push(`/playDetail/${id}`)
 }
 </script>
 
@@ -54,7 +73,7 @@ const comput = (num: number) => {
         .recommend {
             font-size: 18px;
             font-weight: 600;
-            font-family: "微软雅黑";
+            font-family: '微软雅黑';
         }
         .more {
             padding: 0.04rem 0.18rem;
@@ -98,7 +117,7 @@ const comput = (num: number) => {
             }
         }
     }
-    .hide{
+    .hide {
         height: 3.2rem;
         overflow: hidden;
     }

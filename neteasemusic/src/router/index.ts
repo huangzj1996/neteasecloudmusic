@@ -6,7 +6,7 @@ const routes: RouteRecordRaw[] = [
         path: '/',
         name: 'Layout',
         component: () => import('../layout/index.vue'),
-        redirect:'/search',
+        redirect: '/search',
         children: [
             {
                 path: 'search',
@@ -34,6 +34,11 @@ const routes: RouteRecordRaw[] = [
                 component: () => import('views/community/index.vue')
             }
         ]
+    },
+    {
+        path: '/playDetail/:id',
+        component: () => import('@/components/playDetail/index.vue'),
+        props: true
     }
 ]
 

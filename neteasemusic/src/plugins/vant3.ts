@@ -10,7 +10,8 @@ import {
     Image as VanImage,
     Swipe,
     SwipeItem,
-    Divider
+    Divider,
+    NavBar
 } from 'vant'
 
 export default function (app: App<Element>) {
@@ -25,4 +26,5 @@ export default function (app: App<Element>) {
         .use(Swipe)
         .use(SwipeItem)
         .use(Divider)
+        .use(NavBar)
 }
