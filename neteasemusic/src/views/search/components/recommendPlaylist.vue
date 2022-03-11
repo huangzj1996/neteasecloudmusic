@@ -24,7 +24,7 @@
                     <span class="name">{{ item.name }}</span>
                     <span class="playCount">
                         <svg-icon icon-class="play"></svg-icon>
-                        {{ comput(item.playCount) }}万
+                        {{ comput.countNumber(item.playCount) }}万
                     </span>
                 </div>
             </div>
@@ -37,6 +37,7 @@ import { recommendPlaylist } from '@/apis/search'
 import { reactive, ref } from '@vue/reactivity'
 import type { Playlist, State } from '../search'
 import { useRouter } from 'vue-router'
+import usePlayCount from '@/hooks/usePlayCount'
 import SvgIcon from '@/components/SvgIcon/index.vue'
 let state: State = reactive({
     playList: []
@@ -50,9 +51,11 @@ recommendPlaylist(6).then((res) => {
 })
 
 // 计算播放量
-const comput = (num: number) => {
-    return (num / 10000).toFixed(0)
-}
+const comput = usePlayCount()
+
+// const comput = (num: number) => {
+//     return (num / 10000).toFixed(0)
+// }
 
 const toPalyDetail = (id: number) => {
     router.push(`/playDetail/${id}`)
